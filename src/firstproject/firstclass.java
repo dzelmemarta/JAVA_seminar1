@@ -58,7 +58,14 @@ public class firstclass {
 			System.out.println("Videja vertiba ir " + meanValue);
 			
 			double[] testarr = arraySort(mas);
-			System.out.println(Arrays.toString(testarr));
+			System.out.println("Bubble sorted array " + Arrays.toString(testarr));
+			
+			double min = getMin(mas);
+			double max = getMax(mas);
+			
+			System.out.println("Min: " + min);
+			System.out.println("Max: " + max);
+		
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -132,23 +139,41 @@ public class firstclass {
 	private static double[] arraySort(double[] array) throws Exception{
 		if(array == null || array.length == 0) {
 			throw new Exception("probllems with array");
-		}
-		for(int i = 0; i < array.length; i++) {
-			for(int j = 0; j < array.length-1; j++) {
-				if(array[i] < array[j]) {
-					double temp = array[j];
-					array[j] = array[i];
-					array[i] = temp;
+		}else {
+			for(int i = 0; i < array.length; i++) {
+				for(int j = 0; j < array.length-1; j++) {
+					if(array[i] < array[j]) {
+						double temp = array[j];
+						array[j] = array[i];
+						array[i] = temp;
+					}
 				}
 			}
+			return array;
 		}
-		return array;
+	}
+
+	private static double getMin(double[] array) throws Exception{
+		if(array == null || array.length == 0) {
+			throw new Exception("problems with array");
+		}else {
+			double[] sortedarr = arraySort(array);
+			return sortedarr[0];
+		}
+	}
+	
+	private static double getMax(double[] array) throws Exception{
+		if(array == null || array.length == 0) {
+			throw new Exception("problems with array");
+		}else {
+			double[] sortedarr = arraySort(array);
+			return sortedarr[array.length-1];
+		}
 	}
 	
 	
-	
-//	double getMin(double[] array)
+
 //	double getMax(double[] array)
-//	double[] arraySort(double[] array)
+
 
 }
