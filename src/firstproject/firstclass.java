@@ -65,10 +65,17 @@ public class firstclass {
 			
 			System.out.println("Min: " + min);
 			System.out.println("Max: " + max);
+			
+			//------------------------------ 4. uzd. ---------------------------------
+			
+			System.out.println("//------------------------------ 4. uzd. ---------------------------------");
+			double[][] matrix = generateMatrix(4);
+			System.out.println(Arrays.deepToString(matrix));
 		
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 		
 	}
 	
@@ -171,7 +178,22 @@ public class firstclass {
 		}
 	}
 	
-	
+	private static double[][] generateMatrix(int N) throws Exception{
+		if(N <= 0) {
+			throw new Exception("Mevar izveidot masivu, kura garums ir negativs");
+		}
+		
+		double[][] array = new double[N][N];
+		Random rand = new Random();
+		
+		for(int i = 0; i < array.length; i++) {
+			for(int j = 0; j < array[i].length; j++) {
+				array[i][j] = rand.nextDouble();
+			}
+		}
+		
+		return array;
+ 	}
 
 //	double getMax(double[] array)
 
