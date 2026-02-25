@@ -78,16 +78,27 @@ public class firstclass {
 		
 		//------------------------------ 5. uzd. ---------------------------------
 		
-		System.out.println("//------------------------------ 5. uzd. ---------------------------------");
+		System.out.println("//------------------------------ 5-1 uzd. ---------------------------------");
 		
 		int N[] = {10, 100, 1000, 10000};
-		
-		for(int i = 0; i < N.length; i++) {
-			double result[] = coinFlip(N[i]);
-			System.out.println("N = " + N[i] + ":");
-			System.out.println(Arrays.toString(result));
+
+		try {
+			for(int i = 0; i < N.length; i++) {
+				double result[] = coinFlip(N[i]);
+				System.out.println("N = " + N[i] + ":");
+				System.out.println(Arrays.toString(result));
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
+
+		System.out.println("//------------------------------ 5-2 uzd. ---------------------------------");
 		
+		try {
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 	
@@ -206,8 +217,15 @@ public class firstclass {
 		
 		return array;
  	}
+	
+	// ------------------ 5. uzd -------------------------------
 
-	private static double[] coinFlip(int N) {
+	private static double[] coinFlip(int N) throws Exception{
+		
+		if(N <= 0) {
+			throw new Exception("N nedrikst but negativs");
+		}
+		
 		int heads = 0;
 		int tails = 0;
 		double ratio = 0;
@@ -233,6 +251,39 @@ public class firstclass {
 		array[2] = ratio;
 		
 		return array;
+	}
+
+	private static int[] rollDice(int N) throws Exception{
+		int roll_stats[] = {0,0,0,0,0,0};
+		
+		Random rand = new Random();
+				
+		
+		for(int i = 0; i < N; i++) {
+			switch(roll) {
+				case 1:
+					roll_stats[0]++;
+					break;
+				case 2:
+					roll_stats[1]++;
+					break;
+				case 3:
+					roll_stats[2]++;
+					break;
+				case 4:
+					roll_stats[3]++;
+					break;
+				case 5:
+					roll_stats[4]++;
+					break;
+				case 6:
+					roll_stats[5]++;
+					break;
+				default:
+					throw new Exception("Neviens no 1-6");
+					break;
+			}
+		}
 	}
 
 
