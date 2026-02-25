@@ -76,6 +76,18 @@ public class firstclass {
 			System.out.println(e.getMessage());
 		}
 		
+		//------------------------------ 5. uzd. ---------------------------------
+		
+		System.out.println("//------------------------------ 5. uzd. ---------------------------------");
+		
+		int N[] = {10, 100, 1000, 10000};
+		
+		for(int i = 0; i < N.length; i++) {
+			double result[] = coinFlip(N[i]);
+			System.out.println("N = " + N[i] + ":");
+			System.out.println(Arrays.toString(result));
+		}
+		
 		
 	}
 	
@@ -195,7 +207,33 @@ public class firstclass {
 		return array;
  	}
 
-//	double getMax(double[] array)
+	private static double[] coinFlip(int N) {
+		int heads = 0;
+		int tails = 0;
+		double ratio = 0;
+		double array[] = {0, 0, 0};
+		
+		Random rand = new Random();
+		int random_flip = 0;
+
+		for(int i =0; i < N; i++) {
+			random_flip = rand.nextInt(0,2);
+
+			if(random_flip == 1) {
+				tails++;
+			}else {
+				heads++;
+			}
+		}
+		
+		ratio = (double) heads/tails;
+		
+		array[0] = heads;
+		array[1] = tails;
+		array[2] = ratio;
+		
+		return array;
+	}
 
 
 }
